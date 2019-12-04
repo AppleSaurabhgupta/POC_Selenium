@@ -1,4 +1,4 @@
-package com.training.sanity.tests;
+package com.training.assignment;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,8 +15,7 @@ import com.training.pom.LoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class LoginTests {
-
+public class RETC_003_PasswordRecover {
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginPOM loginPOM;
@@ -38,7 +37,6 @@ public class LoginTests {
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
 		driver.get(baseUrl);
-		
 	}
 	
 	@AfterMethod
@@ -47,11 +45,12 @@ public class LoginTests {
 		driver.quit();
 	}
 	@Test
-	public void validLoginTest() {
-	//  loginPOM.clickLoginRegLink();
-		loginPOM.sendUserName("admin");
-		loginPOM.sendPassword("admin@123");
-		loginPOM.clickLoginBtn(); 
-		screenShot.captureScreenShot("First");
+	public void validLoginTest() throws InterruptedException {
+		
+		loginPOM.clickLoginRegLink();
+		loginPOM.clickLostPwd();
+		System.out.println("Website is not working for this forgot password");
 	}
+  
+  
 }

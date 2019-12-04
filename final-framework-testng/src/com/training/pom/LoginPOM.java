@@ -13,14 +13,37 @@ public class LoginPOM {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(id="login")
+
+	@FindBy(id="user_login")
 	private WebElement userName; 
 	
-	@FindBy(id="password")
+	@FindBy(id="user_pass")
 	private WebElement password;
 	
-	@FindBy(id="formLogin_submitAuth")
+	@FindBy(name="login")
 	private WebElement loginBtn; 
+	
+	
+	@FindBy(xpath = "//a[@class = 'sign-in']")
+	private WebElement loginRegLink;
+
+	@FindBy(xpath = "//a[@href = '#tab2']")
+	private WebElement regLink;
+
+	@FindBy(id="email")
+	private WebElement email;
+	
+	@FindBy(id ="first-name")
+	private WebElement firstName;
+	
+	@FindBy(id ="last-name")
+	private WebElement lastName;
+	
+	@FindBy(name="submit")
+	private WebElement regBtn; 
+
+	@FindBy(xpath = "//*[@id=\"tab1\"]/form/p[4]/a")
+	private WebElement lostPwd;
 	
 	public void sendUserName(String userName) {
 		this.userName.clear();
@@ -32,7 +55,40 @@ public class LoginPOM {
 		this.password.sendKeys(password); 
 	}
 	
+	
 	public void clickLoginBtn() {
 		this.loginBtn.click(); 
+	}
+	
+	public void clickLoginRegLink() {
+		this.loginRegLink.click(); 
+	}
+	
+	public void clickRegLink() {
+		this.regLink.click(); 
+	}
+	
+	public void sendEmail(String email) {
+		this.email.clear(); 
+		this.email.sendKeys(email); 
+	}
+	
+	public void sendFirstName(String fName) {
+		
+		this.firstName.clear(); 
+		this.firstName.sendKeys(fName); 
+	}
+
+	public void sendlastName(String lName) {
+		this.lastName.clear(); 
+		this.lastName.sendKeys(lName); 
+	}
+	
+	public void clickRegBtn() {
+		this.regBtn.click(); 
+	}
+	
+	public void clickLostPwd() {
+		this.lostPwd.click(); 
 	}
 }
